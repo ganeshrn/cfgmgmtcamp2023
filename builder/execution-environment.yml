@@ -1,0 +1,14 @@
+---
+version: 1
+
+build_arg_defaults:
+  EE_BASE_IMAGE: "registry.redhat.io/ansible-automation-platform-22/ee-minimal-rhel8:latest"
+
+dependencies:
+  galaxy: requirements.yml
+  system: bindep.txt
+  python: requirements.txt
+
+additional_build_steps:
+  prepend: |
+    RUN microdnf remove ansible-lint
